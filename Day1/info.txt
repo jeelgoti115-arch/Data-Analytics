@@ -1,0 +1,14 @@
+PyTorch is an open-source deep learning framework based on the Torch library, originally developed by Meta AI (formerly Facebook) and now maintained under the Linux Foundation. Built primarily for Python with a C++ core, it provides multidimensional tensor computations with hardware acceleration and automatic differentiation for training neural networks.
+
++--------------------+----------------------------------------------------+-----------------------------------------------------------------+
+| Module             | Purpose                                            | Common Classes / APIs                                           |
++--------------------+----------------------------------------------------+-----------------------------------------------------------------+
+| torch.nn           | Neural network layers, containers, and loss        | nn.Module, nn.Linear, nn.Conv2d, nn.CrossEntropyLoss            |
+|                    | functions                                          |                                                                 |
+| torch.optim        | Optimization algorithms for updating model weights | optim.Adam, optim.AdamW, optim.SGD                              |
+| torch.utils.data   | Data ingestion, preprocessing pipelines, and       | Dataset, DataLoader                                             |
+|                    | batching                                           |                                                                 |
+| torch.autograd     | Gradient computation engine                        | torch.no_grad(), Tensor.backward()                              |
+| torch.distributed  | Multi-GPU and multi-node training orchestration    | DDP (DistributedDataParallel), FSDP(Fully Sharded Data Parallel)|
++--------------------+----------------------------------------------------+-----------------------------------------------------------------+
+
