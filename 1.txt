@@ -1,7 +1,5 @@
 python -m venv venv
 venv/Scripts/activate
-pip install pandas 
-pip install numpy
-pip install jinja2
-pip install openpyxl
+
 pip freeze > requirements.txt
+pip install -r requirements.txt(use this command for downloading the all requirements stored in requirements.txt file)
