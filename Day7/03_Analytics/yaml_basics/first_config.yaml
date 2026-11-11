@@ -1,0 +1,12 @@
+# YAML : "Yet Another Markup Language"
+my_app_name: "CdacHydDA"
+version: 1.2.0
+debug_mode: true
+database:
+  host: "localhost"
+  port: 5432
+  user: "admin"
+features:
+  - "dark_mode"
+  - "auto_save"
+  - "notifications"

@@ -1,0 +1,75 @@
+# ==============================================================================
+# 01_schema_contract.yaml
+# Data Contract & Schema Enforcement Specification
+# ==============================================================================
+# ==============================================================================
+# 01_schema_contract.yaml
+# Data Contract & Schema Enforcement Specification
+# Stage 2: Data Ingestion & Low-Level Hygiene
+# ==============================================================================
+
+# ==============================================================================
+# MODULE: Data Contract & Schema Specification
+# FILE: config/01_schema_contract.yaml
+# PURPOSE: 
+#   Acts as the single source of truth for the dataset's structural expectations.
+#   Defines exact column names, data types, nullability rules, allowed categorical 
+#   values, and numerical min/max boundary constraints. Used by downstream enforcers
+#   to detect schema drift and catch out-of-bounds anomalies before data prep.
+# ==============================================================================
+
+dataset_info:
+  name: "customer_subscription_telemetry"
+  version: "1.0.0"
+  description: "Strict schema contract for raw customer telemetry and subscription data."
+
+expected_columns:
+  customer_id:
+    type: "string"
+    nullable: false
+    unique: true
+    description: "Unique alphanumeric customer identifier."
+
+  tenure_months:
+    type: "int64"
+    nullable: false
+    min_value: 0
+    max_value: 120
+    description: "Number of months the customer has stayed with the company."
+
+  monthly_charges:
+    type: "float64"
+    nullable: false
+    min_value: 0.0
+    max_value: 2000.0
+    description: "The amount charged to the customer monthly."
+
+  total_charges:
+    type: "float64"
+    nullable: true
+    min_value: 0.0
+    max_value: 100000.0
+    description: "The total amount charged to the customer over their lifecycle."
+
+  contract_type:
+    type: "string"
+    nullable: false
+    allowed_values: ["month-to-month", "one-year", "two-year"]
+    description: "The contract term of the customer."
+
+  payment_method:
+    type: "string"
+    nullable: false
+    allowed_values: [
+      "electronic_check", 
+      "mailed_check", 
+      "bank_transfer", 
+      "credit_card"
+    ]
+    description: "The customer's payment method."
+
+  churn_status:
+    type: "string"
+    nullable: false
+    allowed_values: ["yes", "no"]
+    description: "Target indicator of whether the customer churned."
