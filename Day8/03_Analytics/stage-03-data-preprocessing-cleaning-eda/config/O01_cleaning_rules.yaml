@@ -36,7 +36,7 @@ structural_cleaning:
 
 outlier_detection:
   z_score:
-    threshold: 3.0 # Absolute Z-Score threshold
+    threshold: 1.0 # Absolute Z-Score threshold
   iqr:
     multiplier: 1.5 # Tukey's fence multiplier
   isolation_forest:
