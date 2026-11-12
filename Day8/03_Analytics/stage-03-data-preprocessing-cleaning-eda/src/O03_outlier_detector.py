@@ -149,12 +149,10 @@ if __name__ == "__main__":
         detector = OutlierDetector(config_path=config_file)
         df_z = detector.detect_and_treat_zscore(sample_df)
         df_iqr = detector.detect_and_treat_iqr(df_z)
-
+        df_final = detector.detect_multivariate_isolation_forest(df_iqr)
 
         print(sample_df)
         print("=" * 60)
-        print(df_iqr)
-        df_final = detector.detect_multivariate_isolation_forest(df_iqr)
         print("\n[RESULT] Outlier Treated DataFrame Preview:")
         print(df_final)
         
